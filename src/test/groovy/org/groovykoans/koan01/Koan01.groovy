@@ -37,8 +37,8 @@ class Koan01 extends GroovyTestCase {
 
         // Let's start. First - Groovy requires much less boiletplate code. For example, in Groovy we don't
         // have to use semicolons at all. As a matter of fact, we don't always need to define the type of the variable!
-        boolean assertion = false
-        def hello = "Hola"
+        boolean assertion = true
+        def hello = "Hello"
 
         // Assign our variables the required values to continue...
         // ------------ START EDITING HERE ----------------------
@@ -65,6 +65,7 @@ class Koan01 extends GroovyTestCase {
         String result
         // ------------ START EDITING HERE ----------------------
 
+	    result = "The size of the string '${greeting}' is ${greeting.length()}"
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -72,41 +73,40 @@ class Koan01 extends GroovyTestCase {
     }
 
     void test03_MapsInGroovy() {
-        // Maps are also special citizens in Groovyland.
-        // Docs can be found here: http://groovy.codehaus.org/JN1035-Maps
-        def map = [right: 'derecha', left: 'izquierda']
+      // Maps are also special citizens in Groovyland.
+	    // Docs can be found here: http://groovy.codehaus.org/JN1035-Maps
+	    def map = [right: 'derecha', left: 'izquierda']
 
-        // Concatenate the two values of 'right' and 'left' into result to proceed using Groovy syntax
-        def result
-        // ------------ START EDITING HERE ----------------------
+	    // Concatenate the two values of 'right' and 'left' into result to proceed using Groovy syntax
+	    def result
+	    // ------------ START EDITING HERE ----------------------
+			result = map.right + map.left
+	    // ------------ STOP EDITING HERE  ----------------------
 
-
-        // ------------ STOP EDITING HERE  ----------------------
-
-        assert result.toCharArray().size() == 16
+	    assert result.toCharArray().size() == 16
     }
 
     void test04_Lists() {
-        // In Java, list creation can be somewhat cumbersome:
-        List<String> javaList = new ArrayList<String>();
-        javaList.add("King");
-        javaList.add("Queen");
-        javaList.add("Prince");
+	    // In Java, list creation can be somewhat cumbersome:
+	    List<String> javaList = new ArrayList<String>();
+	    javaList.add("King");
+	    javaList.add("Queen");
+	    javaList.add("Prince");
 
-        // In Groovy, this is simplified to:
-        // (See http://groovy.codehaus.org/JN1015-Collections
-        // and http://groovy.codehaus.org/groovy-jdk/java/util/List.html)
-        def groovyList = ['King', 'Prince']
+	    // In Groovy, this is simplified to:
+	    // (See http://groovy.codehaus.org/JN1015-Collections
+	    // and http://groovy.codehaus.org/groovy-jdk/java/util/List.html)
+	    def groovyList = ['King', 'Prince']
 
-        // Add the missing item to the Groovy list. Pay attention to the order of the items.
-        // Hint: you can use either Java's add(int, String) or Groovy's plus() method.
-        // ------------ START EDITING HERE ----------------------
+	    // Add the missing item to the Groovy list. Pay attention to the order of the items.
+	    // Hint: you can use either Java's add(int, String) or Groovy's plus() method.
+	    // ------------ START EDITING HERE ----------------------
+			println(javaList.get(1))
+	    groovyList = groovyList.plus(1, [javaList.get(1)])
+	    // ------------ STOP EDITING HERE  ----------------------
 
-
-        // ------------ STOP EDITING HERE  ----------------------
-
-        // Note how Groovy allows you to compare the *content* of the lists
-        assert groovyList == javaList
+	    // Note how Groovy allows you to compare the *content* of the lists
+	    assert groovyList == javaList
     }
 
     void test05_ElvisAndSafeNavigation() {
@@ -140,14 +140,15 @@ class Koan01 extends GroovyTestCase {
     }
 
     private String createMessageForUser(UserService userService) {
-        def message
-        // ------------ START EDITING HERE ----------------------
+	    def message
+	    // ------------ START EDITING HERE ----------------------
 
+	    message = "Hello ${userService.getLoggedInUser()?.firstName ?: 'Anonymous'}!"
 
-        // ------------ STOP EDITING HERE  ----------------------
+	    // ------------ STOP EDITING HERE  ----------------------
 
-        // Note how Groovy doesn't require the 'return' keyword! It will simply return the last expression.
-        message
+	    // Note how Groovy doesn't require the 'return' keyword! It will simply return the last expression.
+	    message
     }
 
 }
