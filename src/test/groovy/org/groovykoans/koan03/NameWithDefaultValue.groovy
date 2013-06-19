@@ -13,15 +13,16 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
- 
+
 package org.groovykoans.koan03
 
 class NameWithDefaultValue {
-    String name
+	String name
 
-    // ------------ START EDITING HERE ----------------------
-
-
-    // ------------ STOP EDITING HERE  ----------------------
+	// ------------ START EDITING HERE ----------------------
+	NameWithDefaultValue(String name = "Anonymous") {
+		this.name = name
+	}
+// ------------ STOP EDITING HERE  ----------------------
 
 }

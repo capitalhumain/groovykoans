@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
- 
+
 package org.groovykoans.koan03
 
 /**
@@ -21,13 +21,13 @@ package org.groovykoans.koan03
  * First and last name can be modified, but ssn is forever.
  */
 class GroovyPerson {
-    String firstName
-    String lastName
-    final String ssn      // Marking the field 'final' makes it read-only after construction.
+	String firstName
+	String lastName
+	final String ssn      // Marking the field 'final' makes it read-only after construction.
 
-    GroovyPerson(String firstName, String lastName, String ssn) {
-        this.firstName = firstName
-        this.lastName = lastName
-        this.ssn = ssn
-    }
+	GroovyPerson(String firstName, String lastName, String ssn) {
+		this.firstName = firstName
+		this.lastName = lastName
+		this.ssn = ssn
+	}
 }
