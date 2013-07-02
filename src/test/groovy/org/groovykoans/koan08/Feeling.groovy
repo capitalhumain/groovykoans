@@ -13,16 +13,21 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
- 
+
 package org.groovykoans.koan08
 
 public enum Feeling {
-    Happy, Sad, Neutral, Suicidal, Anticipation, Surprised, Relaxed, Guilty
+	Happy, Sad, Neutral, Suicidal, Anticipation, Surprised, Relaxed, Guilty
 
-    // ------------ START EDITING HERE ----------------------
+	// ------------ START EDITING HERE ----------------------
+	boolean isCase(Cartoon cartoon) {
+		cartoon.feeling == this
+	}
 
-
-    // ------------ STOP EDITING HERE  ----------------------
+	boolean isCase(Person person) {
+		person.feelings.contains(this)
+	}
+	// ------------ STOP EDITING HERE  ----------------------
 
 
 }
