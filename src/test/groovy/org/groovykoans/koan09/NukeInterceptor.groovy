@@ -18,30 +18,30 @@ package org.groovykoans.koan09
 
 class NukeInterceptor implements Interceptor {
 
-    boolean isAuthorized = true
+	boolean isAuthorized = true
 
-    @Override
-    Object beforeInvoke(Object obj, String methodName, Object[] args) {
-        // ------------ START EDITING HERE ----------------------
+	@Override
+	Object beforeInvoke(Object obj, String methodName, Object[] args) {
+		// ------------ START EDITING HERE ----------------------
+		if (methodName == 'nukeCity'){
+			isAuthorized = (args[0] == "admin")
+		}
+		// ------------ STOP EDITING HERE  ----------------------
+	}
 
+	@Override
+	Object afterInvoke(Object obj, String methodName, Object[] args, Object result) {
+		// ------------ START EDITING HERE ----------------------
+		isAuthorized = true
+		result
+		// ------------ STOP EDITING HERE  ----------------------
+	}
 
-        // ------------ STOP EDITING HERE  ----------------------
-    }
-
-    @Override
-    Object afterInvoke(Object obj, String methodName, Object[] args, Object result) {
-        // ------------ START EDITING HERE ----------------------
-
-
-        // ------------ STOP EDITING HERE  ----------------------
-    }
-
-    @Override
-    boolean doInvoke() {
-        // ------------ START EDITING HERE ----------------------
-
-
-        // ------------ STOP EDITING HERE  ----------------------
-    }
+	@Override
+	boolean doInvoke() {
+		// ------------ START EDITING HERE ----------------------
+		isAuthorized
+		// ------------ STOP EDITING HERE  ----------------------
+	}
 }
 

@@ -13,14 +13,31 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
- 
+
 package org.groovykoans.koan09
 
 import org.codehaus.groovy.runtime.InvokerHelper
 
 class Robot {
-    // ------------ START EDITING HERE ----------------------
+	// ------------ START EDITING HERE ----------------------
+	def x = 0
+	def y = 0
+
+	def left() {
+	  x--
+	}
+	def right() {
+		x++
+	}
+
+	def up() {
+		y++
+	}
+
+	def down() {
+		y--
+	}
+	// ------------ STOP EDITING HERE  ----------------------
 
 
-    // ------------ STOP EDITING HERE  ----------------------
 }
