@@ -37,7 +37,14 @@ class Robot {
 	def down() {
 		y--
 	}
-	// ------------ STOP EDITING HERE  ----------------------
+
+	@Override
+	Object invokeMethod(String name, Object args) {
+		name.findAll(/(Left|Right|Up|Down)/) { match, String action ->
+			InvokerHelper.invokeMethod(this, action.toLowerCase(), null)
+		}
+	}
+// ------------ STOP EDITING HERE  ----------------------
 
 
 }
